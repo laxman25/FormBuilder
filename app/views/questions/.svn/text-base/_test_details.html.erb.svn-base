@@ -1,0 +1,40 @@
+<head>
+<style type="text/css">
+table
+{
+border:1px dotted #000;
+}
+td, th
+{
+   padding: 3px 10px;
+border:1px dotted #000;
+}
+</style>
+</head>
+
+<table>
+  <tr>
+    <td>
+      Test Name
+    </td>
+    <td>
+      Number of Questions
+    </td>
+    <td>
+      Test Category Name
+    </td>
+
+  </tr>
+    <tr>
+    <td>
+      <%=  @test.name%>
+    </td>
+    <td>
+       <%=  @test.no_of_questions%>
+    </td>
+    <td>
+     <%=  @test.category.name unless  @test.category.blank? %>
+    </td>
+
+  </tr>
+</table>

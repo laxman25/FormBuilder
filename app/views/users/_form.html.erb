@@ -1,0 +1,29 @@
+
+<table>
+	<tr>
+		<td><%= form.label :first_name %></td>
+		<td><%= form.text_field :first_name,:size=>15 %></td>
+	</tr>
+	<tr>
+		<td><%= form.label :last_name %></td>
+		<td><%= form.text_field :last_name,:size=>15 %></td>
+	</tr>
+	<tr>
+		<td><%= form.label :email %></td>
+		<td><%= form.text_field :email,:size=>15 %></td>
+	</tr>
+	<tr>
+		<td><%= form.label :phone_number %></td>
+		<td><%= form.text_field :phone_number,:size=>15 %></td>
+	</tr>
+	<%# if !@user%>
+	<tr>
+		<td><%= form.label :password, form.object.new_record? ? nil : "Change password" %></td>
+		<td><%= form.password_field :password,:size=>15 %></td>
+	</tr>
+	<tr>
+		<td><%= form.label :password_confirmation %></td>
+		<td><%= form.password_field :password_confirmation,:size=>15 %></td>
+	</tr>
+	<%#end%>
+</table>

@@ -1,0 +1,9 @@
+
+<%= form_for @user do |f| %>
+
+ <%= render :partial => "form", :object => f %>
+ 
+ <%= f.submit %>
+
+ 
+<% end %>

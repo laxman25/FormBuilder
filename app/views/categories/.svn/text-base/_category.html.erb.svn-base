@@ -1,0 +1,14 @@
+<%= form_for @category, :remote=> true  do |f|%>
+<div id="errors" >
+<%= render  'errors' %>
+</div>
+<div class="field">
+    <p>New Category Name</p>  <%= f.text_field :name,:size=>15 %>
+    
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

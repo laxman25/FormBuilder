@@ -1,0 +1,5 @@
+<%  if @initial_question_number <= @test.no_of_questions %>
+  $("#next-question").html("<%= escape_javascript(render :partial=>'questions/form',:locals=>{:number=>@initial_question_number}) %>")
+<% elsif @initial_question_number = @test.no_of_questions  %>  
+  $(window.location.replace("/tests"))
+<% end %>

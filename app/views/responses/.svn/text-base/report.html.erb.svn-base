@@ -1,0 +1,24 @@
+<html>
+	<head></head>
+	<body>
+		<h1>Test Results</h1>
+		No of questions are correct :<%= @responses.length %>
+		<% unless  @test.questions.blank? %>
+
+		<%#raise @test.questions.inspect %>
+		<ol>
+			<% for question in @test.questions%>
+			<li>
+				<%= h question.question %> &nbsp;&nbsp;&nbsp;&nbsp; <span class="For_true_or_false_Image" style="float: right; padding-right: 20px; display: inline-block"> <%= display_answer(question) %> </span>
+				<ul>
+					<% for answers in question.answers%>
+					<%= h answers.answer%>
+					<br />
+					<% end %>
+				</ul>
+				<% end %>
+			</li>
+		</ol>
+		<% end %>
+	</body>
+</html>

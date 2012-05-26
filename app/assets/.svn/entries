@@ -1,0 +1,37 @@
+10
+
+dir
+151
+svn+ssh://user1@10.241.170.52/var/svn/trunk/app/assets
+svn+ssh://user1@10.241.170.52/var/svn/trunk
+
+
+
+2012-04-09T07:09:07.907316Z
+150
+user1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+b1b2cf09-f8e2-47ea-937e-2bfee02e83db
+
+images
+dir
+
+javascripts
+dir
+
+stylesheets
+dir
+

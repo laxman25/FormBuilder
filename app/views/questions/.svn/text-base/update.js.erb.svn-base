@@ -1,0 +1,14 @@
+<%  @test.questions.each_with_index do |q,i|
+      if @initial_question_number == i
+        @question = q
+      end
+    end %>
+<%  if @initial_question_number < @test.no_of_questions %>
+  $("#next-question").html("<%= escape_javascript(render :partial=>'questions/questions2',:locals=>{:question=>@question,:number=>@initial_question_number}) %>")
+<% elsif @initial_question_number = @test.no_of_questions  %>
+			
+			<% @test.state="active" %>
+            <% @test.save %>
+
+  $(window.location.replace("/tests"))
+<% end %>

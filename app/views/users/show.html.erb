@@ -1,0 +1,38 @@
+
+  
+<table border="1"  class="table     1">
+  
+
+ <thead>
+        <tr>
+            
+            <th scope="col" abbr="FirstName">First Name</th>
+            <th scope="col" abbr="LastName">Last Name</th>
+            <th scope="col" abbr="E-mail">E-mail</th>
+            <th scope="col" abbr="PhoneNumber">Phone Number</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+
+            <td><%= @user.first_name%></td>
+            <td><%= @user.last_name%></td>
+            <td><%= @user.email%></td>
+            <td><%= @user.phone_number%></td>
+        </tr>
+    </tbody>
+
+</table>
+</ br>
+
+  
+
+  <div class="linksForProfile"  style="width:212px; padding-top:20px " >
+    <a href="/users/edit/edit" style="width: 50px;">edit</a>
+    
+     <%#= link_to "edit2" , style="width: 50px;",edit_user_path %>   &nbsp;&nbsp;&nbsp;&nbsp;
+
+     <a href=<%= reset_password_path  %>>Change Password</a>
+
+  </div>

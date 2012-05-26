@@ -1,0 +1,62 @@
+<%= form_for [@test,Question.new],:remote=>true do |f| %>
+<% if @question.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@question.errors.count, "error") %> prohibited this test from being saved:</h2>
+	<ul>
+		<% @question.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<br />
+<br />
+Questions in current Test :
+<% snum=0%>
+<br />
+<br />
+<table id="table_questions">
+	<tr>
+		<th>S.No</th><th>Question</th><th>options</th>
+	</tr>
+	<% for questions in @test.questions%>
+	<tr>
+		<td><%= snum+1%></td>
+		<% snum= snum+1%> <td><%= h questions.question %></td>
+		<td> 
+		<ol type="1">
+                  <% for answers in questions.answers%>
+			<li>
+				<%= h answers.answer%>
+			</li>
+                        <% end %>
+		</ol>
+
+                </td>
+	</tr>
+	<% end %>
+</table>
+<% next_question = @initial_question_number== 0 ? 0+1 : number %>
+<%= hidden_field(:next,:number ,:value=> next_question ) %>
+
+Enter Question Number : <%= next_question  %>
+<br/>
+<br/>
+<div class="field">
+	<%= f.label :type_of_question %>
+	<br />
+	<%= f.collection_select :type_of_question,Choice.all,:name,:name,{:prompt=>true} %>
+</div>
+<div class="field">
+	<%= f.label :question %>
+	<br />
+	<%= f.text_field :question %>
+</div>
+<div id="correct_ans_div"></div>
+<%= render 'answers' %>
+<div class="actions">
+	<%= f.submit :class => 'create_ques'  %>
+</div>
+<% end %>

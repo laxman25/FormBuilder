@@ -1,0 +1,106 @@
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var sel;			
+			var arr = [];
+			jQuery.noConflict();
+
+			$('.del').live('click',function(){
+					$(this).parent().parent().remove();
+				});
+
+				$('.add').die('click').live('click',function(){
+					$(this).val('Delete');
+					$(this).attr('class','del');
+					var appendTxt = "<tr><td><input type='text' name='answers[]' /> <input type='checkbox'   name='check[]'/></td> <td><input type='button' class='add' value='Add More' /></td></tr>";
+					$("tr:last").after(appendTxt);
+				});
+				
+
+			// for disabling options table for type text
+			$("#question_type_of_question").change(function() {
+				sel = $("#question_type_of_question option:selected").text();
+				if(sel == 'text') {
+					$('#options-table').hide();
+					$('#correct_ans_div').append("<br /><label for='corrct_text_answer'>Correct Answer :</label> <input type='text' id='corrct_text_answer' name='corrct_text_answer'/>");
+				} else {
+					uncheckAll();
+					$('#options-table').show();
+					$('#correct_ans_div').empty();
+				}
+			}).change();
+
+			// for saving options
+			$(".create_ques").click(function() {
+				sel = $("#question_type_of_question option:selected").text();
+
+				$('input[type=checkbox]:checked').each(function() {
+					var m = $(this).prev().val();
+					//jQuery.removeData(var, "arr");
+					arr.push(m);
+				})
+				$('#correct_answer_string').val(arr);
+
+			});
+
+			
+			
+			// for saving correct answer
+			$('#new_question').submit(function() {
+                          var count= 0;
+                                 $("#options-table").find("input:text").each(function(i) {
+                                 $(this).val() == "" && sel != "text" ? count+=1 : count=0 ;
+                                 });
+                                 if(count>0)
+                                   {
+                                     alert("Option Cannot Be Empty");
+                                     return false;
+                                    }
+                           var hidden_values = $('#correct_answer_string').val();
+
+				if(hidden_values == "" && sel != "text") {
+					alert("Please select the correct answer");
+					return false;
+				}
+			});
+			
+			
+			// for radio buttons			
+			function uncheckAll() {
+				$("#options-table").find("input:checkbox").each(function(i) {
+					$(this).attr("checked", false);
+				});
+			}			
+			$("#options-table").find("input:checkbox").live("change", function() {
+				tickOnlyOne(this);
+			});
+			function tickOnlyOne(e) {
+				if(sel == "radio") {
+					uncheckAll();
+					$(e).attr("checked", "checked");
+				}
+			}
+			
+
+		});
+
+	</script>
+</head>
+<div class="field">
+	<table id="options-table">
+		<tr>
+			<td>Enter answers</td>
+		</tr>
+		<tr>
+			<td>
+			<input type="text"   name="answers[]" />
+			<input type="checkbox"   name="check[]"/>
+			</td>
+			<td>
+			<input type="button" class="add" value="Add More" />
+			</td>
+		</tr>
+	</table>
+	<%= hidden_field(:correct_answer,:string ,:value=>'correct_answer' ) %>
+</div>

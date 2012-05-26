@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>Trunk</title>
+		<%= stylesheet_link_tag  "http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js",  "login" %>
+		<%= javascript_include_tag "login"  %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body id="body">
+		<div id="welcome">
+			<div id="login" style=" ">
+				<div class="user_reg">
+					<%= link_to "No account? Click here!", new_signup_path %>
+				</div>
+				<%= form_for @user_session do |f| %>
+				<table id="login_table">                                 
+					<tr>
+                                          <th>
+						<%= f.label :email %></th>
+					
+                                          <td><%= f.text_field :email ,:class => "email",:placeholder=>"email" %></td>
+					</tr>
+					<tr>
+                                          <th><%= f.label :password %></th>
+					
+                                          <td>	<%= f.password_field :password , :class => "email" ,:placeholder=>"password" %></td>
+					</tr>
+					<tr>
+                                          <th colspan="2"> <%= f.check_box :remember_me, :class => "remember" %>Remember me</th>
+                                        </tr>
+                                        <tr>
+                                          <th colspan="2"><%= link_to "Forgot Password",forgot_password_path  %></th>
+					</tr>
+					<tr>
+                                          <th><%= f.submit " " , :class => "submit",:id=>"login_submit" %></th>
+                                          <th><input type="button" id="login_cancel" value=""/></th>
+					</tr>
+				</table>
+				<% end %>
+			</div>
+		</div>
+	</body>
+</html>
+
+

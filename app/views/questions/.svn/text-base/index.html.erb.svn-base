@@ -1,0 +1,25 @@
+<h1>Listing questions</h1>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Test name</th>
+    <th>Choice type</th>
+    <th></th>
+  </tr>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.question %></td>
+    <td><%= question.test_id %></td>
+    <td><%= question.type_of_question %></td>
+    <td><%= link_to 'Show', test_question_path(question) %></td>
+    <td><%= link_to 'Edit', edit_test_question_path(question) %></td>
+    <td><%= link_to 'Destroy', test_question_path(question), :confirm=> 'Are you sure?', :method=> :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%#= link_to 'New Question', new_question_path %>

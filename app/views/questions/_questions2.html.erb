@@ -1,0 +1,17 @@
+<% @question = @initial_question_number==0  ? @question : question %>
+<%= form_for  [@test,@question],:remote=>true do |f| %>
+<div class="field">
+  <%= f.label :type_of_question %><br />
+    <%= f.collection_select :type_of_question,Choice.all,:name,:name,{:prompt=>true} %>
+  </div>
+  <div class="field">
+    <%= f.label :question %><br />
+    <%= f.text_field :question %>
+  </div>
+ <%= hidden_field(:next,:number ,:value=> @initial_question_number ) %>
+
+<%= render 'answers' %>
+  <div class="actions">
+    <%= f.submit  %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<% if @category.errors.any? %>
+
+  <%# @category.errors.full_messages.each do |msg| %>
+        <%#= msg %>
+      <%# end %>
+  $("#for_new_category_error").show();
+$("#for_new_category_error").html('<%= escape_javascript(render :partial => "categories/errors", :locals => {:target => @category })%>')
+   <%#*.appendTo('#errors')%>
+<% else %>
+$("#for_new_category_error").hide();
+$("#category-div").html("<%= escape_javascript(render('categories/categories')) %>")
+$("#new-category").html("")
+<% end %>

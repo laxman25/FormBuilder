@@ -1,0 +1,47 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<div id="left_navigation_show" align="left" style="border:solid;float:left;width:17.5%;height:100%;padding-top:50px;padding-left:10px;" >
+<a href="">Questionaire</a><br /><br />
+<a href="http://www....">Surveys</a><br /><br />
+<a href="http://www....">Add Administration</a><br /><br />
+
+</div>
+<div id="show_content" align="middle" style="border:solid;float:right;width:80.5%;height:100%;"  >
+<h1>Listing users</h1>
+<table  >
+    <tr >
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Email
+        </th>
+
+        <th>
+            Phone number
+        </th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+        <td>
+            <%= user.first_name %>
+        </td>
+        <td>
+            <%= user.last_name %>
+        </td>
+        <td>
+            <%= user.email %>
+        </td>
+	<td>
+	    <%= user.phone_number%>
+	</td>
+     </tr>
+    <% end %>
+</table>
+</div>

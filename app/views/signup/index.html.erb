@@ -1,0 +1,41 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<%#= "index" %>
+
+<h1>Listing users</h1>
+<table  >
+    <tr >
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Email
+        </th>
+
+        <th>
+            Phone number
+        </th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+        <td>
+            <%= user.first_name %>
+        </td>
+        <td>
+            <%= user.last_name %>
+        </td>
+        <td>
+            <%= user.email %>
+        </td>
+	<td>
+	    <%= user.phone_number%>
+	</td>
+     </tr>
+    <% end %>
+</table>

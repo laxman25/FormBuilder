@@ -1,0 +1,25 @@
+<%# 
+# To change this template, choose Tools | Templates 
+# and open the template in the editor. 
+%>
+
+
+
+<table> 
+  <tr> 
+    <th>Test Name</th> 
+    <th>Number of Questions</th> 
+    <th></th> 
+    <th></th> 
+    <th></th> 
+  </tr>
+
+<% @tests.each do |test| %> 
+  <tr> 
+    <td><%= test.name %></td> 
+    <td><%= test.no_of_questions %></td> 
+    <td><%= link_to 'Show', test %></td> 
+    <td><%#= link_to 'Destroy', test, confirm:'Are you sure?', :method =>:delete %></td> 
+  </tr> 
+<% end %> 
+</table>

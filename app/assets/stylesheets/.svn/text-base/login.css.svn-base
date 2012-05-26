@@ -1,0 +1,77 @@
+input[type=button]{ border:none; border-radius:5px;}
+
+#login {
+        
+	background-image: url('/images/dialog.png');
+	width: 390px;
+	height: 227px;
+	padding: 40px 40px 30px 47px;
+	-moz-box-shadow: 0 0 20px black;
+	-webkit-box-shadow: 0 0 20px black;
+	box-shadow: 0 0 20px black;
+	 font: 13px/2 arial,Georgia, Serif;
+         margin: 150px auto;
+}
+.email {
+	width: 200px;
+	height: 23px;
+}
+.submit, #login_cancel {
+	width: 85px;
+	height: 25px;
+}
+.user_reg {
+	padding: 8px 0 10px 220px;
+	font-size: 11px;
+}
+.user_reg a {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: bold;	
+}
+/*1html {
+	background: url(/images/backgd.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}*/
+#welcome {
+
+}
+/*table{
+	column-width: 50px;
+}*/
+div.spacer
+{
+    font-size: 0; 
+    width: 10px;
+    line-height: 0;
+}
+
+.reg_form{
+
+    padding: 100px 200px;
+}
+#login_cancel{
+    background-image: url('/images/Cancel_Btn.png');
+    border:none; border-radius:5px;
+   
+}
+#login_submit{
+     background-image: url('/images/Login-1.png');
+     border:none; border-radius:5px; margin-right:5px;
+}
+#login table{
+    text-align: left;
+    padding-top: 15px;
+}
+#login th{
+    width:70px;
+    color: #41A317;
+    padding-top: 5px;
+}
+#login td{
+ width:290px;
+ padding-top: 5px;
+}

@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<%= javascript_include_tag  :defaults,"timer"%>
+		<script>
+						$(document).ready(function(){
+
+			$(document).find(':input').each(function() {
+			switch(this.type) {		
+			case 'text':
+			case 'textarea':
+			$(this).val('');
+			break;
+			case 'checkbox':
+			case 'radio':
+			this.checked = false;
+			}
+			});
+
+			// time_test="#{@test.no_of_questions}";
+			var time_test =<%= @test.no_of_questions.to_json %>
+				*60;
+
+				$(".countdown span").countDown({
+					startNumber : time_test
+				});
+
+				});
+		</script>
+	</head>
+	<body>
+		<p id="notice">
+			<%= notice %>
+		</p>
+		<%= form_for @test, :url => {:controller =>:responses ,:action=>:report} do |f|%>
+		<% if @test.state=="inactive"%>
+		<br />
+		<p>
+			This test is incomplete please take another test.
+		</p>
+		<% else %>
+		<% time_test = @test.no_of_questions %>
+
+		Test Name: <%= @test.name %> <span class="countdown" style="float: right; padding-right: 20px; display: inline-block"> Remaining Time: <span></span></span>
+		<p>
+			<ol>
+				<% for questions in @test.questions%>
+				<li>
+					<%= h questions.question %>
+					<ul>
+						<% for answers in questions.answers%>
+						<input  value="<%= answers.answer%>"  id="<%= questions.id%><%= answers.id%>" name="q[]<%= questions.id%>[]" value="<%= h answers.answer%>" type="<%= questions.type_of_question %>"/>
+						<%= h answers.answer%>
+						<br />
+						<% end %>
+					</ul>
+					<% end %>
+				</li>
+				
+			</ol>
+			<%= hidden_field(:test_id,:number ,:value=> @test.id ) %>
+<<<<<<< .mine
+			<%#= paginate @pages %>
+			
+=======
+			<%#= paginate @test %>
+>>>>>>> .r151
+			<%#= hidden_field_tag 'selected', @test.id  %>
+			<%= f.submit "submit"  %>
+
+			<% end %>
+			<% end %>
+		</p>
+	</body>
+</html>

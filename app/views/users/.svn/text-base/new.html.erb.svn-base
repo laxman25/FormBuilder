@@ -1,0 +1,21 @@
+
+ <!DOCTYPE html>
+<html>
+	<head>
+		<title>Trunk</title>
+		<%= stylesheet_link_tag   "login" %>
+		<%= javascript_include_tag "login" %>
+		<%= csrf_meta_tags %>
+	</head>
+    <body id="body">
+
+        <div id="reg_form">
+            <h3> Registration Form</h3>
+            <%= form_for@user,:validate=>true do |f| %>
+            <%#= f.error_messages %>
+            <%= render :partial => "form", :object => f %>
+            <%= f.submit "Register" %>
+            <% end %>
+        </div>
+    </body>
+</html>

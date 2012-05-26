@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Q:</b>
+  <%= @question.question %>
+<br />
+
+  <b>Help text:</b>
+  <%= @question.help_text %>
+</p>
+
+<ul>
+    <% for answers in @question.answers%>
+      <li><%= h answers.answer%></li>
+    <% end %>
+  </ul>
+
+<%= link_to 'Edit', edit_question_path(@question) %>
+<%= link_to "Destroy", @test, :confirm => 'Are you sure?', :method => :delete %> 
+<%= link_to "View All", questions_path %>
+
+

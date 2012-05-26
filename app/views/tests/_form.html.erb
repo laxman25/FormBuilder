@@ -1,0 +1,56 @@
+<%= form_for @test ,:validate => true do |f| %>
+<!-- <% if @test.errors.any? %>
+<div id="error_explanation">
+      <h2><%= pluralize(@test.errors.count, "error") %> prohibited this test from being saved:</h2>
+
+      <ul>
+      <% @test.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> -->
+  <div id="new_test_main_form" style="float:left;">
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name ,:size=>15 %>
+  </div>
+  <br/>
+  <div class="field">
+   <label>Test Duration (In Mins)</label><br />
+    <%= f.text_field :duration,:size=>15%>
+  </div>
+  <br/>
+  <div class="field">
+    
+    <%= f.label :no_of_questions %><br />
+    <%= f.text_field :no_of_questions,:size=>15%>
+  </div>
+  <br/>
+  <%= f.label :category %><br />
+  <div  id="category-div" class="field" style="float:left">
+    <%= f.collection_select :category_id,Category.all,:id,:name,{:prompt=>true} %>
+  </div>
+  <div id="for_link_add_new_category" style="float:right">
+ 
+&nbsp;&nbsp;<%= link_to "Add New Category", new_category_path,:remote => true %>
+  </div>
+  <div style="clear:both;"></div>
+  <br/>
+
+  <div class="actions">
+    <%= f.submit %>
+    <br/><br/>
+    <%= link_to 'Back', tests_path %>
+  </div>
+<% end %>
+</div>
+<div id="for_new_category" style="float:right; padding-top: 120px;">
+  <div id="for_new_category_error">
+  </div>
+<div id="new-category">
+</div>
+  </div>
+  <style type="text/css" media="all">
+    
+  </style>
