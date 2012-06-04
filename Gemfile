@@ -11,8 +11,10 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
-gem 'thin'
+group :production do
+  gem 'thin'
+  gem 'pg'
+end
 gem 'client_side_validations'
 
 gem "nifty-generators", :group => :development
@@ -30,7 +32,7 @@ gem 'jquery-rails'
 gem "authlogic"
 gem 'kaminari'
 gem 'daemons', '1.1.0'
-#gem 'dispatch'
+gem 'dispatch'
 #em 'factory_girl'
 #em'factory_girl_rails'
 
