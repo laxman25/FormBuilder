@@ -29,6 +29,7 @@ end
 gem 'jquery-rails'
 gem "authlogic"
 gem 'kaminari'
+gem 'dispatch'
 #em 'factory_girl'
 #em'factory_girl_rails'
 
