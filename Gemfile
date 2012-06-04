@@ -12,7 +12,8 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production do
-  gem 'thin'
+  #gem 'thin'
+  gem 'passenger'
   gem 'pg'
 end
 gem 'client_side_validations'
